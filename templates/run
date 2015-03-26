@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+JAVA_HOME=/jdk1.8.0_31/
+export JAVA_HOME
+PATH=$PATH:$JAVA_HOME/bin
+export PATH
+exec /opentsdb/build/tsdb tsd 1>>/var/log/tsdb.log 2>&1
