@@ -8,8 +8,20 @@
 - name: put run
   template: src=run dest=/root/opentsdb-dockerized/run mode=0755
 
+
 - name: build a Docker image for OpenTSDB
-  command: docker build -t gitinsky/opentsdb:0.1.1 --rm /root/opentsdb-dockerized
+  docker_image:
+    path:  /root/opentsdb-dockerized
+    name:  gitinsky/opentsdb
+    tag:   0.1.1
+    state: present
+  tags:
+    - docker
 
 - name: tag it as latest
-  command: docker build -t gitinsky/opentsdb:latest --rm /root/opentsdb-dockerized
+  docker_image:
+    path:  /root/opentsdb-dockerized
+    name:  gitinsky/opentsdb
+    state: build
+  tags:
+    - docker
