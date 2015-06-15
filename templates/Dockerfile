@@ -1,7 +1,5 @@
-FROM gitinsky/oracle-java-8:0.1.2
+FROM gitinsky/oracle-java-8:0.1.3
 MAINTAINER Git In Sky <support@gitinsky.com>
-
-ENV JAVA_HOME /jdk1.8.0_45/
 
 RUN \
   apt-get -y install git make autoconf python && \
