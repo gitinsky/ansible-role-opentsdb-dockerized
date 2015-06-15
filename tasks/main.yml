@@ -6,14 +6,13 @@
   template: src=Dockerfile dest=/root/opentsdb-dockerized/Dockerfile
 
 - name: put run
-  template: src=run dest=/root/opentsdb-dockerized/run mode=0755
-
+  template: src=start.sh dest=/root/opentsdb-dockerized/start.sh mode=0755
 
 - name: build a Docker image for OpenTSDB
   docker_image:
     path:  /root/opentsdb-dockerized
     name:  gitinsky/opentsdb
-    tag:   0.1.1
+    tag:   0.1.3
     state: present
   tags:
     - docker
